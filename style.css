@@ -80,9 +80,11 @@ body
 	font-weight: bold;
 }
 
-.divHeader > .divMain > .mSlider > div.hireus
+.divHeader > .divMain > .mSlider > div > div.hireus
 {
 	display: inline-block;
+	position: relative;
+	top: 30px;
 	width: 20%;
 	padding: 10px 10px;
 	font-size: 26px;
@@ -92,4 +94,83 @@ body
 
 .divHeader > .divMain > .rArrow
 {
+}
+
+.divAboutUs
+{
+	position: relative;
+	background-image: url('imgs/2.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	width: 100%;
+	height: 560px;
+}
+
+.divAboutUs > .text
+{
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 30%;
+	height: 100%;
+	text-align: left;
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.divAboutUs > .text > p
+{
+	text-align: left;
+	padding-bottom: 20px;
+}
+
+.divAboutUs > .text > p.head
+{
+	font-size: 28px;
+	padding-bottom: 0;
+}
+
+.divAboutUs > .text > button
+{
+	text-align: center;
+	padding: 10px 30px;
+	background-color: #1E90FF;
+	color: white;
+}
+
+.divOurServices
+{
+	width: 100%;
+	height: 560px;
+}
+
+.divOurServices > .head
+{
+	position: relative;
+	background-image: url('imgs/3.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	width: 100%;
+	height: 140px;
+}
+
+.divOurServices > .main
+{
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	width: 100%;
+	height: 100%;
+	background-color: green;
+}
+
+.divOurServices > .main > div
+{
+	border: 3px solid red;
 }
