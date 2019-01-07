@@ -170,7 +170,47 @@ body
 	background-color: green;
 }
 
-.divOurServices > .main > div
+.divOurServices > .main > .flip-container
 {
-	border: 3px solid red;
+	perspective: 1000;
+	width: 100%;
+	height: 100%;
+}
+
+.divOurServices > .main > .flip-container > .flipper
+{
+	width: 100%;
+	height: 100%;
+	transition: 0.8s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.divOurServices > .main > .flip-container > .flipper > .front
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	background-color: yellow;
+	z-index: 2;
+}
+
+.divOurServices > .main > .flip-container > .flipper > .back
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	background-color: yellow;
+	transform: rotateY(180deg);
+}
+
+.divOurServices > .main > .flip-container.hover > .flipper
+{
+	transform: rotateY(180deg);
 }

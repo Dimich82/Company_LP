@@ -75,14 +75,38 @@
 			<div class = "head">
 			</div>
 			<div class = "main">
-				<div>
-					Serv1
+				<div class = "flip-container" onmouseover = "changeFlip(0, 1)" onmouseout = "changeFlip(0, 0)"
+					ontouchstart = "this.classList.toggle('hover');">
+					<div class = "flipper">
+						<div class = "front">
+							Serv1Front
+						</div>
+						<div class = "back">
+							Serv1Back
+						</div>
+					</div>
 				</div>
-				<div>
-					Serv2
+				<div class = "flip-container" onmouseover = "changeFlip(1, 1)" onmouseout = "changeFlip(1, 0)"
+					ontouchstart = "this.classList.toggle('hover');">
+					<div class = "flipper">
+						<div class = "front">
+							Serv2Front
+						</div>
+						<div class = "back">
+							Serv2Back
+						</div>
+					</div>
 				</div>
-				<div>
-					Serv3
+				<div class = "flip-container" onmouseover = "changeFlip(2, 1)" onmouseout = "changeFlip(2, 0)"
+					ontouchstart = "this.classList.toggle('hover');">
+					<div class = "flipper">
+						<div class = "front">
+							Serv3Front
+						</div>
+						<div class = "back">
+							Serv3Back
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
