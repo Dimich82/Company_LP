@@ -7,8 +7,13 @@ $(document).ready(function()
 			top = $(id).offset().top;
 		$('body,html').animate({scrollTop: top}, 1000);
 	});
+	
+	//prepareSlider();
 });
 
+/*
+	Работа с флипаками
+*/
 var flippers = document.getElementsByClassName('flip-container');
 
 function changeFlip(flip, isOn)
@@ -18,3 +23,5 @@ function changeFlip(flip, isOn)
 	else
 		flippers[flip].classList.add('hover');
 }
+
+
