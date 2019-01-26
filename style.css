@@ -277,14 +277,32 @@ body
 	height: 400px;
 }
 
-.divFeedBack > .main > .divSliderControl
+.divFeedBack > .main > .carousel-control
 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	background-color: #3d3d3d;
-	color: white;
+	color: #aeaeae;
 	padding: 50px;
+}
+
+.divFeedBack > .main > .carousel-control > div > hr
+{
+	width: 20%;
+	color: #aeaeae;
+	background-color: #aeaeae;
+}
+
+.divFeedBack > .main > .carousel-control > div > p.control
+{
+	display: flex;
+	justify-content: space-between;
+}
+
+.divFeedBack > .main > .carousel-control > div > p.control > span > img
+{
+	cursor: pointer;
 }
 
 .divFeedBack > .main > .block-carousel
@@ -316,6 +334,7 @@ body
 .divFeedBack > .main > .block-carousel > .carousel-hider > .carousel-list > .carousel-item
 {
 	display: block;
+	position: relative;
 	float: left;
 	margin-right: 25px;
 }
@@ -326,4 +345,3 @@ body
 	padding: 3px;
 	background-color: white;
 }
-

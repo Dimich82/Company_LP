@@ -39,6 +39,18 @@ var images =
 	'92.jpg'
 ];
 
+var feedBacks = 
+[
+	'Самоё ваще крутое',
+	'Ваще огонь',
+	'Раньше я нифига про это не знал, теперь знаю!',
+	'Как пещерные люди без этого жили, кто-нибудь подскажет?',
+	'Это появилось, когда я уже родилсся ура!',
+	'Сколько без этой великолепной хрени прожито зря лет',
+	'У меня в детстве такой штуковины не было, я очень страдал, не спал ночами, даже аппетита не было.',
+	'Как только додумались такое изобрести!'
+];
+
 var currentLeftValue = 0;
 
 function prepareSlider()
@@ -48,6 +60,10 @@ function prepareSlider()
 	var i = 0;
 	allCnt = images.length;
 	var fbNum = 0;
+	var page = '';
+	var shortFB = '';
+	var fb_len = feedBacks.length;
+	var ind_comment = 0;
 	
 	carousel.empty();
 	allSlides = new Array();
@@ -61,13 +77,23 @@ function prepareSlider()
 		li = document.createElement("li");
 		//li.id = "item" + i;
 		li.classList.add("carousel-item");
-		allSlides[i] = li;
+		
+		shortFB = "ОТЗЫВ " + String(fbNum);
+		
+		ind_comment = Math.floor(Math.random() * fb_len);
+		
+		allSlides[i] = 
+		{
+			shFb: shortFB,
+			fullFb: feedBacks[ind_comment],
+			block: li
+		};
 		
 		img = document.createElement("img");
 		img.src = "imgs/users/" + images[i];
 		
 		p = document.createElement("p");
-		p.innerHTML = "<span>ОТЗЫВ " + fbNum + "</span>";
+		p.innerHTML = "<span>" + shortFB + "</span>";
 		
 		li.append(img);
 		li.append(p);
@@ -78,17 +104,23 @@ function prepareSlider()
 	step = 128 + 25;
 	curItem = 0;
 	currentLeftValue = 0;
+	
+	page = String(curItem + 1) + '/' + String(allCnt - N + 1);
+	$('#carousel-pages').empty().append(page);
 }
 
 function moveNext()
 {
 	var car = $("#carousel");
+	var page = '';
 	curItem++;
 	
 	if (curItem <= allCnt - N)
 	{
 		currentLeftValue -= step;
-		car.animate({ left: currentLeftValue + "px"}, 500);
+		car.animate({left: currentLeftValue + "px"}, 500);
+		page = String(curItem + 1) + '/' + String(allCnt - N + 1);
+		$('#carousel-pages').empty().append(page);
 	}
 	else
 		curItem = allCnt - N;
@@ -97,12 +129,15 @@ function moveNext()
 function movePrev()
 {
 	var car = $("#carousel");
-
+	var page = '';
+	
 	curItem--;
 	if (curItem >= 0)
 	{
 		currentLeftValue += step;
-		car.animate({ left: currentLeftValue + "px"}, 500);
+		car.animate({left: currentLeftValue + "px"}, 500);
+		page = String(curItem + 1) + '/' + String(allCnt - N + 1);
+		$('#carousel-pages').empty().append(page);
 	}
 	else
 		curItem = 0;
