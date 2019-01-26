@@ -2,7 +2,14 @@
 	Работа со слайдами
 */
 var allSlides;
-var N = 3; // количество картинок на одном слайде
+var N = 6; // количество картинок на одном слайде
+var carW = 0; // ширина доступного пространства показа картинок
+var nextLen = 0; //длина следующей картинки
+var step = 0;
+var allCnt = 0; // количество слайдов
+var curItem = 0; // текущая позиция
+var currentLeftValue = 0;
+
 var images =
 [
 	'1.jpg',
@@ -36,89 +43,67 @@ var currentLeftValue = 0;
 
 function prepareSlider()
 {
-	var slide = $('#slider');
-	var div, img, span;
+	var carousel = $('#carousel');
+	var li, img, p;
 	var i = 0;
-	var len = images.length;
+	allCnt = images.length;
+	var fbNum = 0;
 	
-	slide.empty();
+	carousel.empty();
 	allSlides = new Array();
+	step = 0;
 	
-	for (i = 0; i < len; i++)
+	carW = $("div.carousel-hider").outerWidth();
+	
+	for (i = 0; i < allCnt; i++)
 	{
-		div = document.createElement("div");
-		div.classList.add("slide-item");
-		allSlides[i] = div;
+		fbNum = i + 1;
+		li = document.createElement("li");
+		//li.id = "item" + i;
+		li.classList.add("carousel-item");
+		allSlides[i] = li;
 		
 		img = document.createElement("img");
-		//allSlides[i] = img;
 		img.src = "imgs/users/" + images[i];
 		
-		span = document.createElement("span");
-		span.innerHTML = "ОТЗЫВ";
+		p = document.createElement("p");
+		p.innerHTML = "<span>ОТЗЫВ " + fbNum + "</span>";
 		
-		div.append(img);
-		div.append(span);
+		li.append(img);
+		li.append(p);
 		
-		slide.append(div);
+		carousel.append(li);
 	}
 	
-	/*
-	for (i = 0; i < N; i++)
-	{
-		allSlides[i].classList.remove("hide");
-		allSlides[i].classList.add("show");
-	}
-	*/
+	step = 128 + 25;
+	curItem = 0;
+	currentLeftValue = 0;
 }
 
 function moveNext()
 {
 	var car = $("#carousel");
-	currentLeftValue -= 150;
-	car.animate({ left: currentLeftValue + "px"}, 500);
+	curItem++;
+	
+	if (curItem <= allCnt - N)
+	{
+		currentLeftValue -= step;
+		car.animate({ left: currentLeftValue + "px"}, 500);
+	}
+	else
+		curItem = allCnt - N;
 }
 
 function movePrev()
 {
 	var car = $("#carousel");
-	currentLeftValue += 150;
-	car.animate({ left: currentLeftValue + "px"}, 500);
-}
 
-/*
-function prepareSlider()
-{
-	var slide = $('#slider');
-	
-	var span; // = document.createElement("span");
-	var img, curImg;
-	var i = 0, sl = 0, sh = 0;
-	var len = Math.ceil(images.length / N);
-	
-	slide.empty();
-	
-	allSlides = new Array();
-	for (sl = 0; sl < len; sl++)
+	curItem--;
+	if (curItem >= 0)
 	{
-		span = document.createElement("span");
-		span.classList.add("spanSlide");
-		allSlides[sl] = span;
-		slide.append(span);
-		sh = sl * N;
-		for (i = 0; i < N; i++)
-		{
-			curImg = images[i + sh];
-			if (curImg != null)
-			{
-				img = document.createElement("img");
-				img.src = "imgs/users/" + curImg;
-				span.append(img);
-			}
-		}
+		currentLeftValue += step;
+		car.animate({ left: currentLeftValue + "px"}, 500);
 	}
-	
-	if (allSlides[0] != null)
-		allSlides[0].classList.add("show");
+	else
+		curItem = 0;
 }
-*/

@@ -292,8 +292,7 @@ body
 	position: relative;
 	width: 100%;
 	height: 100%;
-	
-	background-color: yellow;
+	background-color: #3d3d3d;
 }
 
 .divFeedBack > .main > .block-carousel > .carousel-hider
@@ -303,9 +302,7 @@ body
 	bottom: 25%;
 	left: 0;
 	right: 0;
-	background-color: green;
 	overflow: hidden;
-	list-style: none;
 }
 
 .divFeedBack > .main > .block-carousel > .carousel-hider > .carousel-list
@@ -313,6 +310,7 @@ body
 	position: relative;
 	width: 10000px;
 	list-style: none;
+	
 }
 
 .divFeedBack > .main > .block-carousel > .carousel-hider > .carousel-list > .carousel-item
@@ -322,91 +320,10 @@ body
 	margin-right: 25px;
 }
 
-/*
-.divFeedBack > .main > .divSlider > .divSlides
+.divFeedBack > .main > .block-carousel > .carousel-hider > .carousel-list > .carousel-item > p > span
 {
-	position: absolute;
-	width: 100%;
-	height: 50%;
-	top: 30%;
-	overflow: hidden;
-	background-color: green;
-}
-
-.divFeedBack > .main > .divSlider > .divSlides > .slide-item
-{
-	display: inline;
-	float: left;
-	padding-top: 40px;
-	padding-left: 17%;
-}
-
-.divFeedBack > .main > .divSlider > .divSlides > .slide-item > span
-{
-	display: block;
-	position: relative;
-	top: -20px;
+	margin-right: 3px;
+	padding: 3px;
 	background-color: white;
 }
-
-.divFeedBack > .main > .divSlider > .divSlides > .slide-item.left
-{
-	transform: translateX(-300px);
-}
-*/
-/*
-.divFeedBack > .main > .divSlider > .divSlides > img
-{
-	padding: 40px;
-}
-
-.divFeedBack > .main > .divSlider > .divSlides > img:hover
-{
-	transform: scale(1.6, 1.6);
-}
-*/
-/*
-.divFeedBack > .main > .divSlider > .divSlides
-{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 80%;
-	height: 100%;
-}
-
-.divFeedBack > .main > .divSlider > .divSlides > img
-{
-	transform: scale(1.6, 1.6);
-	border: 3px solid red;
-	padding: 10px;
-}
-
-.divFeedBack > .main > .divSlider > .divSlides > img.hide
-{
-	z-index: -10;
-}
-
-.divFeedBack > .main > .divSlider > .divSlides > img.show
-{
-	z-index: 5;
-}
-*/
-/* 
-.divFeedBack > .main > .divSlider > .divSlides > span.spanSlide
-{
-	display: none;
-	width: 100%;
-	background-color: green;
-}
-
-.divFeedBack > .main > .divSlider > .divSlides > span.spanSlide.show
-{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	background-color: green;
-}
- */
 
